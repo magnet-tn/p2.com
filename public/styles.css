@@ -1,6 +1,9 @@
-html * {
+html, body{
     font-family: Helvetica, sans-serif;
+    margin-top:0px;
+    padding-top:0px;
 }
+
 
 th, td {
     padding: 8px;

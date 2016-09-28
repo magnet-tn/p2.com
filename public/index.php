@@ -29,7 +29,7 @@ ini_set('display_errors', 1); // Display errors on page (instead of a log file)
             </tr>
             <tr>
                 <td><label><span>Number of words in password:</span></label></td>
-                <td><input type='number' name='wordQty' placeholder="0-9" min="0" max="9"></td>
+                <td><input type='number' name='wordQty' placeholder="2-9" min="2" max="9"></td>
             </tr>
             <tr>
                 <td><label><span>Maximum character quantity:</span></label></td>
