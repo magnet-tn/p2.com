@@ -2,6 +2,7 @@
 error_reporting(E_ALL);       // Report Errors, Warnings, and Notices
 ini_set('display_errors', 1); // Display errors on page (instead of a log file)
 ?> -->
+
 <!DOCTYPE html>
 <html>
 
@@ -57,11 +58,25 @@ ini_set('display_errors', 1); // Display errors on page (instead of a log file)
             </table>
         </form>
 
-        <table id='results'>
+        <table>
 <tr>
     <td><?php echo $newPassword ?></td>
 </tr>
         </table>
+
+        <!-- <table>
+            <tr>
+                <th width="100">Index</th>
+                <th width="100">Word</th>
+            </tr>
+            <?php foreach($wordArray as $idx => $pword): ?>
+                <tr>
+                    <td><?php echo $idx ?></td>
+                    <td><?php echo $wordArray[$pword] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table> -->
+
         <br>
 
     </body>

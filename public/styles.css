@@ -1,9 +1,14 @@
 html, body{
     font-family: Helvetica, sans-serif;
-    margin-top:0px;
+    margin-top:-50px;
+    margin-left: 15%;
     padding-top:0px;
-}
+    }
 
+#results {
+    margin-top: 60px;
+    text-align: center;
+}
 
 th, td {
     padding: 8px;

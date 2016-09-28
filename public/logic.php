@@ -6,17 +6,14 @@ $charArray = ['~','!','@','#', '$', '%', '^', '&', '*', '(', ')', '-'];
 array_push($charArray,'_', '=', '+', '[', '{', ']', '}', '|', ':', ':', '"');
 array_push($charArray, "'", ',', '<', '.', '>', '/', '?');
 
-// test word array
+// test word array hardcode for now,
+//with multiple shuffles to increase randomness
 $wordArray = ['now', 'lame', 'heart', 'heavy', 'woman', 'baby', 'guilty', 'archaic', 'pumpkin', 'card', 'age', 'formal', 'angle', 'ghost', 'fire', 'archive', 'bladder', 'mangle', 'north', 'fusion', 'garter', 'whistle', 'cave', 'governor', 'still', 'riddle', 'tan', 'grift', 'aloe', 'plant', 'frog','mile', 'sift', 'bring', 'trap', 'malice'];
 array_push($wordArray, 'fit', 'art', 'fun', 'willow', 'fort', 'gun', 'game', 'geology', 'elk', 'brave', 'snoop', 'fritter');
 $newArray[] = shuffle($wordArray);
 $newerArray[] = shuffle($newArray);
 $wordArray[] = $newerArray;
 
-// echo "<pre>";
-// var_dump($wordArray);
-// echo "</pre>";
-// echo '<br><br>';
 
 $numWords = $_GET["wordQty"];
 //Random positions for numbers and special characters
@@ -24,12 +21,9 @@ $numRandomIndex = rand(0,($numWords-1));
 $numRandomPos = rand(0,1);
 $charRandomIndex = rand(0,($numWords-1));
 $charRandomPos = rand(0,1);
-// echo 'random index: '.$numRandomIndex.'<br>';
-// echo 'random position: '.$numRandomPos.'<br>';
-// echo 'random index: '.$charRandomIndex.'<br>';
-// echo 'random position: '.$charRandomPos.'<br>';
 
 
+//user selected delimiter
 if ($_GET['delimit'] == 'hyphen') {
     $delimiter = "-";
 }elseif ($_GET['delimit'] == 'space') {
@@ -40,9 +34,9 @@ if ($_GET['delimit'] == 'hyphen') {
         $wordArray[$x] = ucfirst($wordArray[$x]);
     }
 }
-// echo 'the delimiter is:'.$delimiter.':  <br>';
 
 //adds a randomly selected special character to a random word.
+//inserts it into random position at the front or back of complete words
 if ($_GET['inclChar'] == 'yes') {
     $randomChar = $charArray[array_rand($charArray,1)];
     switch ($charRandomPos) {
@@ -54,10 +48,12 @@ if ($_GET['inclChar'] == 'yes') {
             $wordArray[$charRandomIndex] = $temp;
             break;
         default:
+        //do nothing
     }
 }
 
 //adds a randomly selected number to a random word.
+//inserts it into random position at the front or back of complete words
 if ($_GET['inclNum'] == 'yes') {
     $randomNum = rand(0,9);
     switch ($numRandomPos) {
@@ -73,20 +69,12 @@ if ($_GET['inclNum'] == 'yes') {
     }
 }
 
-
-if ($_GET['inclNum'] == 'yes'){
-
-//    echo 'random integer: '.$pNum.'<br>';
-} else {
-    $pNum = "" ;
-//        echo 'random integer: '.$pNum.'<br>';
-}
+//generates a concatenated string of random words with user defined delimiter
 if ($numWords > 0){
 $newPassword = $wordArray[0];
 }
 for ($x = 1; $x < $numWords; $x++) {
     $addWords = $delimiter . $wordArray[$x];
     $newPassword.=$addWords;
-//   echo 'The words are:'.$wordArray[$x]."<br>";
 }
-echo 'concatenated password is--->'.$newPassword.'<br';
+//echo 'concatenated password is--->'.$newPassword.'<br';
