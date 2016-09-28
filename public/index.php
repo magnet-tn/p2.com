@@ -18,11 +18,10 @@ ini_set('display_errors', 1); // Display errors on page (instead of a log file)
 </head>
 
 <body>
-    <h1>Password Generator - P2</h1>
     <form action='index.php' method='GET'>
         <table>
             <tr>
-                <th></th>
+                <th>Password Generator</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -59,18 +58,18 @@ ini_set('display_errors', 1); // Display errors on page (instead of a log file)
             </table>
         </form>
 
-        <table>
+        <!-- <table>
             <tr>
                 <th width="100">Index</th>
                 <th width="100">Word</th>
             </tr>
-            <?php foreach($random_words as $idx => $pword): ?>
+            <?php foreach($wordArray as $idx => $pword): ?>
                 <tr>
                     <td><?php echo $idx ?></td>
                     <td><?php echo $wordArray[$pword] ?></td>
                 </tr>
             <?php endforeach; ?>
-        </table>
+        </table> -->
 
         <br>
 
