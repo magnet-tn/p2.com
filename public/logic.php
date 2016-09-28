@@ -17,12 +17,22 @@ $newArray[] = shuffle($wordArray);
 $newerArray[] = shuffle($newArray);
 $wordArray[] = $newerArray;
 
-// echo "<pre>";
-// var_dump($wordArray);
-// echo "</pre>";
-// echo '<br><br>';
+echo "<pre>";
+var_dump($wordArray);
+echo "</pre>";
+echo '<br><br>';
 
 $numWords = $_GET["wordQty"];
+//Random positions for numbers and special characters
+$numRandomIndex = rand(0,($numWords-1));
+$numRandomPos = rand(0,1);
+$charRandomIndex = rand(0,($numWords-1));
+$charRandomPos = rand(0,1);
+// echo 'random index: '.$numRandomIndex.'<br>';
+// echo 'random position: '.$numRandomPos.'<br>';
+// echo 'random index: '.$charRandomIndex.'<br>';
+// echo 'random position: '.$charRandomPos.'<br>';
+
 
 if ($_GET['delimit'] == 'hyphen') {
     $delimiter = "-";
@@ -36,23 +46,48 @@ if ($_GET['delimit'] == 'hyphen') {
 }
 echo 'the delimiter is:'.$delimiter.':  <br>';
 
-
+//adds a randomly selected special character to a random word.
 if ($_GET['inclChar'] == 'yes') {
     $randomChar = $charArray[array_rand($charArray,1)];
-    // echo 'random character: '.$randomChar.'<br>';
-}else {
-    $randomChar = "";
-        // echo 'random character: '.$randomChar.'<br>';
+    switch ($charRandomPos) {
+        case 0:
+            $wordArray[$charRandomIndex] = substr_replace($wordArray[$charRandomIndex], $randomChar, 0, 0);
+            break;
+        case 1:
+            $temp = $wordArray[$charRandomIndex].$randomChar;
+            $wordArray[$charRandomIndex] = $temp;
+            break;
+        default:
+    }
 }
 
+//adds a randomly selected number to a random word.
+if ($_GET['inclNum'] == 'yes') {
+    $randomNum = rand(0,9);
+    switch ($numRandomPos) {
+        case 0:
+            $wordArray[$numRandomIndex] = substr_replace($wordArray[$numRandomIndex], $randomNum, 0, 0);
+            break;
+        case 1:
+            $temp = $wordArray[$numRandomIndex].$randomNum;
+            $wordArray[$numRandomIndex] = $temp;
+            break;
+        default:
+    }
+}
+
+
+
 if ($_GET['inclNum'] == 'yes'){
-    $pNum = rand(0,9);
+
 //    echo 'random integer: '.$pNum.'<br>';
 } else {
     $pNum = "" ;
 //        echo 'random integer: '.$pNum.'<br>';
 }
+if ($numWords > 0){
 $newPassword = $wordArray[0];
+}
 for ($x = 1; $x < $numWords; $x++) {
     $addWords = $delimiter . $wordArray[$x];
     $newPassword.=$addWords;
