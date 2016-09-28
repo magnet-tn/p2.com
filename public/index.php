@@ -11,7 +11,7 @@ ini_set('display_errors', 1); // Display errors on page (instead of a log file)
 
     <link rel='stylesheet' href='styles.css' type='text/css'>
     <link rel="icon" type="image/png" href="TroubleU-icon.png">
-    
+
     <title>=Password Generator</title>
 
     <?php require 'logic.php'; ?>
@@ -19,38 +19,61 @@ ini_set('display_errors', 1); // Display errors on page (instead of a log file)
 
 <body>
     <h1>Password Generator - P2</h1>
-
     <form action='index.php' method='GET'>
-
-        <input type='integer' name='wordQty'><br>
-        <input type='text' name='characterQty'><br>
-        <label>Use Special Character</label>
-        <input type="radio" name="inclChars" value="yes">yes
-        <input type="radio" name="inclChars" value="no" checked>no<br>
-        <label>Use Number</label>
-        <input type="radio" name="inclNum" value="yes">yes
-        <input type="radio" name="inclNum" value="no" checked>no<br><br>
-
-        <input type='submit' value='Generate Special Password'>
-        <br><br>
-
-    </form>
-
-    <table>
-        <tr>
-            <th width="50">Index</th>
-            <th width="100">Word</th>
-        </tr>
-        <?php foreach($random_words as $idx => $pword): ?>
+        <table>
             <tr>
-                <td><?php echo $idx ?></td>
-                <td><?php echo $wordArray[$pword] ?></td>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
-        <?php endforeach; ?>
-    </table>
+            <tr>
+                <td><label><span>Number of words in password:</span></label></td>
+                <td><input type='number' name='wordQty' placeholder="0-9" min="0" max="9"></td>
+            </tr>
+            <tr>
+                <td><label><span>Maximum character quantity:</span></label></td>
+                <td><input type='number' name='characterQty' placeholder="8-99"min="8" max="99"></td><br><br>
+            </tr>
+            <tr>
+                <td><label><span>Include Special Character:</span></label>
+                    <td><input type="radio" name="inclChar" value="no" checked>no</td>
+                    <td><input type="radio" name="inclChar" value="yes">yes</td><br><br>
+                </tr>
+                <tr>
+                    <td><label><span>Include Integer (0-9)</span></label></td>
+                    <td><input type="radio" name="inclNum" value="no" checked>no</td>
+                    <td><input type="radio" name="inclNum" value="yes">yes</td><br><br>
+                </tr>
+                <tr>
+                    <td><label><span>Delimiting Method:</span></label></td>
+                    <td><input type="radio" name="delimit" value="hyphen" checked>hyphen</td>
+                    <td><input type="radio" name="delimit" value="space">space </td>
+                    <td><input type="radio" name="delimit" value="camelCase">camelCase</td><br><br>
+                </tr>
 
-    <br>
+                <tr>
+                    <td><input type='submit' value='Generate Special Password'></td>
+                </tr>
+                <br><br>
+            </table>
+        </form>
 
-</body>
+        <table>
+            <tr>
+                <th width="100">Index</th>
+                <th width="100">Word</th>
+            </tr>
+            <?php foreach($random_words as $idx => $pword): ?>
+                <tr>
+                    <td><?php echo $idx ?></td>
+                    <td><?php echo $wordArray[$pword] ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
 
-</html>
+        <br>
+
+    </body>
+
+    </html>

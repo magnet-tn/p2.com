@@ -2,11 +2,6 @@ html * {
     font-family: Helvetica, sans-serif;
 }
 
-table {
-    border-collapse: collapse;
-    width: 35%;
-}
-
 th, td {
     padding: 8px;
     text-align: left;
@@ -17,4 +12,13 @@ th {
     background-color: #080;
     color: #fff;
     font-weight:400;
+}
+input[type="number"] {
+   width:50px;
+}
+
+h1 {
+    padding: 0px
+    margin: 0px;
+
 }

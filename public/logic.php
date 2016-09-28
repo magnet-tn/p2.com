@@ -15,16 +15,24 @@ array_push($charArray, "'", ',', '<', '.', '>', '/', '?');
 // test word array
 $wordArray = ['pumpkin', 'card', 'age', 'formal', 'angle', 'ghost', 'fire', 'archive', 'bladder', 'mangle', 'north', 'fusion', 'garter', 'whistle', 'cave', 'governor', 'still', 'riddle', 'tan', 'grift', 'aloe', 'plant', 'frog','mile', 'sift', 'bring', 'trap', 'mallice'];
 // echo "<pre>";
-var_dump($_GET, $charArray);
-// echo "</pre>";
-echo '<br><br>';
+// var_dump($_GET);
+// // echo "</pre>";
+// echo '<br><br>';
+
+if ($_GET['inclChar'] == 'yes') {
+    $randomChar = $charArray[array_rand($charArray,1)];
+    // echo 'random character: '.$randomChar.'<br>';
+}else {
+    $randomChar = "";
+        // echo 'random character: '.$randomChar.'<br>';
+}
 
 if ($_GET['inclNum'] == 'yes'){
     $pNum = rand(0,9);
-    echo $pNum;
+//    echo 'random integer: '.$pNum.'<br>';
 } else {
     $pNum = "" ;
-    echo "no num".$pNum;
+//        echo 'random integer: '.$pNum.'<br>';
 }
 
 $numWords = $_GET["wordQty"];
