@@ -1,22 +1,19 @@
-<!-- <?php
-error_reporting(E_ALL);       // Report Errors, Warnings, and Notices
-ini_set('display_errors', 1); // Display errors on page (instead of a log file)
-?> -->
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
-
     <link rel='stylesheet' href='css/styles.css' type='text/css'>
     <link rel="icon" type="image/png" href="img/TroubleU-icon.png">
-
     <title>=Password Generator</title>
-
     <?php require 'logic.php'; ?>
+    <h1>Project 2 - XKCD Style Password Generator</h1>
+    <h3>for CSCI-E15 - Dynamic Web Applications</h3>
 </head>
 
 <body>
+    <img src="img/TroubleU-icon-light" width="200">
+
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method='POST'>
 
         <table>
@@ -52,7 +49,7 @@ ini_set('display_errors', 1); // Display errors on page (instead of a log file)
             </tr>
 
             <tr>
-                <td><input type='submit' value='Generate Special Password'></td>
+                <td><input type='submit' class='submit' value='Generate Password'></td>
             </tr>
             <br><br>
         </table>

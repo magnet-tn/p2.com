@@ -34,51 +34,53 @@ $charRandomPos = rand(0,1);
 
 
 //user selected delimiter
-if ($_POST['delimit'] == 'hyphen') {
-    $delimit = "-";
-}elseif ($_POST['delimit'] == 'space') {
-    $delimit = " ";
-}else {
-    $delimit = "";
-    for ($x = 1; $x < $wordQty; $x++) {
-        $wordArray[$x] = ucfirst($wordArray[$x]);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_POST['delimit'] == 'hyphen') {
+        $delimit = "-";
+    }elseif ($_POST['delimit'] == 'space') {
+        $delimit = " ";
+    }else {
+        $delimit = "";
+        for ($x = 1; $x < $wordQty; $x++) {
+            $wordArray[$x] = ucfirst($wordArray[$x]);
+        }
     }
 }
 
 //adds a randomly selected special character to a random word.
 //inserts it into random position at the front or back of complete words
-if ($_POST['inclChar'] == 'yes') {
-    $randomChar = $charArray[array_rand($charArray,1)];
-    switch ($charRandomPos) {
-        case 0:
-        $wordArray[$charRandomIndex] = substr_replace($wordArray[$charRandomIndex], $randomChar, 0, 0);
-        break;
-        case 1:
-        $temp = $wordArray[$charRandomIndex].$randomChar;
-        $wordArray[$charRandomIndex] = $temp;
-        break;
-        default:
-        //do nothing
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_POST['inclChar'] == 'yes') {
+        $randomChar = $charArray[array_rand($charArray,1)];
+        switch ($charRandomPos) {
+            case 0:
+            $wordArray[$charRandomIndex] = substr_replace($wordArray[$charRandomIndex], $randomChar, 0, 0);
+            break;
+            case 1:
+            $temp = $wordArray[$charRandomIndex].$randomChar;
+            $wordArray[$charRandomIndex] = $temp;
+            break;
+            default:
+            //do nothing
+        }
+    }
+    //adds a randomly selected number to a random word.
+    //inserts it into random position at the front or back of complete words
+    if ($_POST['inclNum'] == 'yes') {
+        $randomNum = rand(0,9);
+        switch ($numRandomPos) {
+            case 0:
+            $wordArray[$numRandomIndex] = substr_replace($wordArray[$numRandomIndex], $randomNum, 0, 0);
+            break;
+            case 1:
+            $temp = $wordArray[$numRandomIndex].$randomNum;
+            $wordArray[$numRandomIndex] = $temp;
+            break;
+            default:
+            //do nothing
+        }
     }
 }
-
-//adds a randomly selected number to a random word.
-//inserts it into random position at the front or back of complete words
-if ($_POST['inclNum'] == 'yes') {
-    $randomNum = rand(0,9);
-    switch ($numRandomPos) {
-        case 0:
-        $wordArray[$numRandomIndex] = substr_replace($wordArray[$numRandomIndex], $randomNum, 0, 0);
-        break;
-        case 1:
-        $temp = $wordArray[$numRandomIndex].$randomNum;
-        $wordArray[$numRandomIndex] = $temp;
-        break;
-        default:
-        //do nothing
-    }
-}
-
 //generates a concatenated string of random words with user defined delimiter
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($wordQty > 0){
