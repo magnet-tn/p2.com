@@ -23,26 +23,30 @@
                 <th></th>
                 <th></th>
             </tr>
+
             <tr>
-                <td><label><span>Number of words in password:</span></label></td>
-                <td><input type='number' name='wordQty' value="<?php echo $wordQty;?>" placeholder="2-9" min="2" max="9"></td>
+                <td><label>Number of words in password: <span>(2-20)</span></label></td>
+                <td><input type='number' name='wordQty' value="<?php echo $wordQty;?>" <?php if (!isset($newPassword)) echo "class='highlight' " ?>placeholder="2-20" min="2" max="20"></td>
             </tr>
             <!-- <tr>
-            <td><label><span>Maximum character quantity:</span></label></td>
+            <td><label>Maximum character quantity:</label></td>
             <td><input type='number' name='characterQty' placeholder="8-99"min="8" max="99"></td><br><br>
         </tr> -->
+
         <tr>
-            <td><label><span>Include Special Character:</span></label>
+            <td><label>Include Special Character:</label>
                 <td><input type="radio" name="inclChar" value="no" <?php if (isset($inclChar) && $inclChar=="no") echo "checked";?>>no</td>
                 <td><input type="radio" name="inclChar" value="yes" <?php if (isset($inclChar) && $inclChar=="yes") echo "checked";?>>yes</td><br><br>
             </tr>
+
             <tr>
-                <td><label><span>Include Integer (0-9)</span></label></td>
+                <td><label>Include Integer (0-9)</label></td>
                 <td><input type="radio" name="inclNum" value="no" <?php if (isset($inclNum) && $inclNum=="no") echo "checked";?>>no</td>
                 <td><input type="radio" name="inclNum" value="yes"<?php if (isset($inclNum) && $inclNum =="yes") echo "checked";?>>yes</td><br><br>
             </tr>
+
             <tr>
-                <td><label><span>Delimiting Method:</span></label></td>
+                <td><label>Delimiting Method:</label></td>
                 <td><input type="radio" name="delimit" value="hyphen" <?php if (isset($delimit) && $delimit=="-") echo "checked";?>>hyphen</td>
                 <td><input type="radio" name="delimit" value="space" <?php if (isset($delimit) && $delimit==" ") echo "checked";?>>space </td>
                 <td><input type="radio" name="delimit" value="camelCase" <?php if (isset($delimit) && $delimit=="") echo "checked";?>>camelCase(no spaces)</td><br><br>
@@ -51,19 +55,19 @@
             <tr>
                 <td><input type='submit' class='submit' value='Generate Password'></td>
             </tr>
-            <br><br>
         </table>
+
     </form>
 
     <table id='results'>
         <tr>
-            <th>New Password</th>
+            <th>New Password<?php if (!isset($newPassword)) echo '<em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(please indicate number of words for your password)</em>' ?></th>
         </tr>
-        <tr>
-            <td><?php echo $newPassword ?></td>
+
+        <tr<?php if(isset($newPassword)) echo " class='output'" ?>>
+            <td><?php if (isset($newPassword)) echo $newPassword ?></td>
         </tr>
     </table>
-    <br>
 
 </body>
 

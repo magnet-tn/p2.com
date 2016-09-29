@@ -21,17 +21,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $inclNum = $_POST["inclNum"];
     $inclChar = $_POST["inclChar"];
 } else {
-    $wordQty = 2;//default
+    //    $wordQty = 2;//default
     $delimit = "-";//default
     $inclNum = "no";//default
     $inclChar = "no";//default
 }
 //Random positions for numbers and special characters
-$numRandomIndex = rand(0,($wordQty-1));
-$numRandomPos = rand(0,1);
-$charRandomIndex = rand(0,($wordQty-1));
-$charRandomPos = rand(0,1);
-
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $numRandomIndex = rand(0,($wordQty-1));
+    $numRandomPos = rand(0,1);
+    $charRandomIndex = rand(0,($wordQty-1));
+    $charRandomPos = rand(0,1);
+}
 
 //user selected delimiter
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
