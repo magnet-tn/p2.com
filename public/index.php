@@ -8,8 +8,8 @@ ini_set('display_errors', 1); // Display errors on page (instead of a log file)
 <head>
     <meta charset="UTF-8">
 
-    <link rel='stylesheet' href='styles.css' type='text/css'>
-    <link rel="icon" type="image/png" href="TroubleU-icon.png">
+    <link rel='stylesheet' href='css/styles.css' type='text/css'>
+    <link rel="icon" type="image/png" href="img/TroubleU-icon.png">
 
     <title>=Password Generator</title>
 
