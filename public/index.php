@@ -3,10 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
+
     <link rel='stylesheet' href='css/styles.css' type='text/css'>
     <link rel="icon" type="image/png" href="img/TroubleU-icon.png">
+
     <title>=Password Generator</title>
+
     <?php require 'logic.php'; ?>
+
     <h1>Project 2 - XKCD Style Password Generator</h1>
     <h3>for CSCI-E15 - Dynamic Web Applications</h3>
 </head>

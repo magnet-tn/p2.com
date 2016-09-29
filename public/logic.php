@@ -94,4 +94,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }else {
     $newPassword ="";
 }
-//echo 'concatenated password is--->'.$newPassword.'<br';
