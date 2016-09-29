@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <img src="img/TroubleU-icon-light" width="200">
+    <img src="img/TroubleU-icon-light.png" width="200">
 
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method='POST'>
 
