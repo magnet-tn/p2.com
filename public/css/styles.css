@@ -7,7 +7,6 @@ html {
 body {
     margin-left: 15%;
     background-color: #efefef;
-    background-origin: padding-box;
     padding-left: 10px;
 }
 
@@ -47,8 +46,7 @@ th {
     background-color: #080;
     color: #fff;
     font-weight: 400;
-    background-clip: padding-box;
-    border-radius: 3px;
+    border-radius: 3px 3px;
 }
 
 input[type="number"] {
@@ -59,8 +57,7 @@ input[type="number"] {
     background-color: #0a0;
     color: #111;
     font-weight: 400;
-    background-clip: padding-box;
-    border-radius: 1px;
+    border-radius: 2px;
     border: none;
     padding: 10px 20px;
     text-align: center;
