@@ -17,7 +17,7 @@ The application will produce a password string based upon words from a story I w
 I hope you enjoy the application.
 
 ## Demo
-<http://www.screencast.com/t/mA2ak8f2m5Q>
+<http://www.screencast.com/t/7ZTd7vl2pjrs>
 
 ## Details for teaching team
 No login required.
